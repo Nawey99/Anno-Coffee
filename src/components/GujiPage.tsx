@@ -120,13 +120,7 @@ export function GujiPage() {
                     Lemon Candy
                   </span>
                   <span className="px-4 py-2 bg-white rounded-full border border-teal-200 text-teal-900">
-                    Black Currant
-                  </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-green-200 text-green-900">
-                    Sweet
-                  </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-teal-200 text-teal-900">
-                    Clean Cup
+                    Black Tea
                   </span>
                 </div>
               </div>

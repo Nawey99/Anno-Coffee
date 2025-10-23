@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 import {
   ArrowRight,
   Leaf,
@@ -28,6 +29,74 @@ export function HomePage() {
     "../assets/img/Coffee_Fields_Sunset .jpg",
     import.meta.url
   ).href;
+
+  // EmailJS configuration
+  const EMAILJS_SERVICE_ID = "service_0peuwlq";
+  const EMAILJS_TEMPLATE_ID = "template_y5p129r";
+  const EMAILJS_PUBLIC_KEY = "XZaOCknVntQAtAE9c";
+
+  // Form state
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+
+  // Handle form input changes
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      // Initialize EmailJS
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+
+      // Send email
+      const result = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: `${formData.firstName} ${formData.lastName}`,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: "ANNO Coffee Team",
+        }
+      );
+
+      console.log("Email sent successfully:", result);
+      setSubmitStatus("success");
+
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -122,17 +191,18 @@ export function HomePage() {
                 Our Identity
               </div>
               <h2 className="text-4xl md:text-5xl mb-6 text-gray-900 leading-tight">
-                Our Logo is Our Identity
+                Family-Owned. 25 Years of Passion for Coffee
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Anno is a place in Ethiopia known to be sacred in Oromo people's
-                Gada System. It is a refreshing hill with beautiful appearance
-                that plants and animals at Anno are all feared and respected.
+                At Anno Coffee, we import the finest green coffee beans from
+                Ethiopia, the birthplace of coffee. Our coffee is organic,
+                naturally grown, and pesticidefree.
               </p>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                Coming from Coffee growing areas in Ethiopia, we have amassed
-                immeasurable experience with Ethiopian green coffee production
-                from seedling farm to processing for commercial consumption.
+                As a family-owned business with over 25 years of experience in
+                the coffee industry, we work directly with out-grower farmers in
+                the Guji area and are passionate about delivering the
+                highestquality product to our customers.
               </p>
               <Link
                 to="/about"
@@ -175,17 +245,17 @@ export function HomePage() {
                 Core Elements
               </div>
               <h2 className="text-4xl md:text-5xl mb-6 text-gray-900 leading-tight">
-                Core Elements of Our Logo
+                Our Green Coffee Selection Process
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                A coffee bean: to represent our main quality supply of roasted
-                coffee. Mountain: that represents our name Anno, a refreshing
-                hill/mountain.
+                At Anno Coffee, we carefully select the highestquality green
+                coffee beans from across Ethiopia. Our team works hand-in-hand
+                with farmers to guarantee that the best farming and processing
+                methods are used.
               </p>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                Logo elements, with each item described according to our
-                definition. Green Coffee bean + Mountain representation = Anno
-                Coffee logo.
+                Each batch is then evaluated for flavor, aroma, and acidity,
+                ensuring that every bean meets our standards.
               </p>
               <div className="flex flex-wrap gap-3">
                 <span className="px-4 py-2 bg-[#DEB887]/20 text-[#08775f] rounded-full border border-[#DEB887]/30">
@@ -212,58 +282,19 @@ export function HomePage() {
                 Color Palette
               </div>
               <h2 className="text-4xl md:text-5xl mb-6 text-gray-900 leading-tight">
-                Our Brand Colors
+                Sustainability From Seed to Cup
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                Burlywood is a very pale, warm shade of brown with similarities
-                to bisque and desert sand. It is a little more peach in hue than
-                tan.
+                At Anno Coffee, we are committed to reducing our carbon
+                footprint. Our coffee is ethically sourced and environmentally
+                sustainable.
               </p>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                Dark Green is a color you can find in the depths of the forest.
-                It is lighter and softer in tone than forest green. Use these
-                color proportions in any layout or collateral design.
+                We ensure that all our farmers use sustainable farming practices
+                and are paid fairly for their hard work. We are also committed
+                to using eco-friendly packaging and shipping methods
               </p>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-[#08775f] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-white rounded-full" />
-                  </div>
-                  <div>
-                    <h4 className="text-gray-900 mb-1">
-                      Primary Green (#08775f)
-                    </h4>
-                    <p className="text-gray-600">
-                      Dark Green - a color you can find in the depths of the
-                      forest
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-[#DEB887] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-white rounded-full" />
-                  </div>
-                  <div>
-                    <h4 className="text-gray-900 mb-1">Burlywood (#DEB887)</h4>
-                    <p className="text-gray-600">
-                      Very pale, warm shade of brown with similarities to bisque
-                      and desert sand
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-6 h-6 bg-[#c6a86d] rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <div className="w-2 h-2 bg-white rounded-full" />
-                  </div>
-                  <div>
-                    <h4 className="text-gray-900 mb-1">Pine Green (#c6a86d)</h4>
-                    <p className="text-gray-600">
-                      A color of excitement, usually used in christmas
-                      decorations
-                    </p>
-                  </div>
-                </div>
-              </div>
+              
             </div>
             <div className="order-1 md:order-2">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
@@ -291,11 +322,11 @@ export function HomePage() {
         </div>
         <div className="relative max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl mb-6 leading-tight">
-            Experience the Tradition of Ethiopian Coffee
+            Experience the Tradition of Ethiopian Coffee Today with Anno Coffee
           </h2>
           <p className="text-xl mb-10 text-amber-100 leading-relaxed">
             Anno Coffee is a green coffee importing company based in Chicago,
-            IL. Founded by the Markos-Sirakis family, our mission is to honor
+            IL. Founded by the Morkata Shonora family, our mission is to honor
             the heritage of Ethiopian coffee while supporting local farmers and
             communities.
           </p>
@@ -321,7 +352,21 @@ export function HomePage() {
             </p>
           </div>
           <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10">
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Success/Error Messages */}
+              {submitStatus === "success" && (
+                <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
+                  Thank you! Your message has been sent successfully. We'll get
+                  back to you soon.
+                </div>
+              )}
+              {submitStatus === "error" && (
+                <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
+                  Sorry, there was an error sending your message. Please try
+                  again or contact us directly.
+                </div>
+              )}
+
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block mb-2 text-gray-700">
@@ -329,7 +374,11 @@ export function HomePage() {
                   </label>
                   <input
                     type="text"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
                     placeholder="John"
+                    required
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
                   />
                 </div>
@@ -337,6 +386,9 @@ export function HomePage() {
                   <label className="block mb-2 text-gray-700">Last Name</label>
                   <input
                     type="text"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                     placeholder="Doe"
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
                   />
@@ -348,25 +400,43 @@ export function HomePage() {
                 </label>
                 <input
                   type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   placeholder="john@example.com"
+                  required
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
                 />
               </div>
               <div>
                 <label className="block mb-2 text-gray-700">Message*</label>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   placeholder="Tell us how we can help you..."
                   rows={5}
+                  required
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all resize-none"
                 />
               </div>
               <div className="text-center">
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 bg-amber-900 hover:bg-amber-950 text-white px-10 py-4 rounded-full transition-all transform hover:scale-105"
+                  disabled={isSubmitting}
+                  className="inline-flex items-center gap-2 bg-amber-900 hover:bg-amber-950 disabled:bg-amber-600 disabled:cursor-not-allowed text-white px-10 py-4 rounded-full transition-all transform hover:scale-105 disabled:transform-none"
                 >
-                  Send Message
-                  <Mail className="w-4 h-4" />
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Mail className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               </div>
             </form>

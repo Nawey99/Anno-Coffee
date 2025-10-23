@@ -29,19 +29,18 @@ export function Navigation() {
     (p) => location.pathname === p || location.pathname.startsWith(p + "/")
   );
 
-  const navBgClass = isDarkContext
-    ? "bg-white/98 border-b border-[#DEB887]/30"
-    : "bg-white/98 border-b border-[#DEB887]/20";
-  const linkBase = "relative py-2 transition-colors";
-  const linkActive = "text-[#08775f]";
-  const linkInactive = "text-gray-800 hover:text-[#08775f]";
-
   return (
     <nav
-      className={`sticky top-0 z-50 shadow-lg transition-colors backdrop-blur-md ${navBgClass}`}
+      className="sticky top-0 left-0 right-0 z-50 bg-white/50 backdrop-blur-2xl border-b border-white/30 shadow-2xl"
+      style={{
+        background: "rgba(255, 255, 255, 0.55)", // <-- higher opacity, still translucent
+        backdropFilter: "blur(24px) saturate(180%)", // <-- extra blur + contrast
+        WebkitBackdropFilter: "blur(24px) saturate(180%)",
+      }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
+          {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <img
               src={isDarkContext ? secondaryLogo : primaryLogo}
@@ -57,41 +56,44 @@ export function Navigation() {
           <div className="hidden md:flex items-center gap-8">
             <Link
               to="/"
-              className={`${linkBase} ${
-                isActive("/") ? linkActive : linkInactive
+              className={`nav-link ${
+                isActive("/") ? "nav-link-active" : "nav-link-inactive"
               }`}
             >
               Home
-              {isActive("/") && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#08775f]" />
-              )}
+              {isActive("/") && <span className="nav-indicator" />}
             </Link>
             <Link
               to="/coffees"
-              className={`${linkBase} ${
-                isActive("/coffees") ? linkActive : linkInactive
+              className={`nav-link ${
+                isActive("/coffees") ? "nav-link-active" : "nav-link-inactive"
               }`}
             >
               Our Coffees
-              {isActive("/coffees") && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#08775f]" />
-              )}
+              {isActive("/coffees") && <span className="nav-indicator" />}
             </Link>
             <Link
               to="/about"
-              className={`${linkBase} ${
-                isActive("/about") ? linkActive : linkInactive
+              className={`nav-link ${
+                isActive("/about") ? "nav-link-active" : "nav-link-inactive"
               }`}
             >
               About
-              {isActive("/about") && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#08775f]" />
-              )}
+              {isActive("/about") && <span className="nav-indicator" />}
             </Link>
             <Link
               to="/coffees"
-              className="px-6 py-2.5 rounded-full transition-colors bg-[#08775f] text-white hover:bg-[#065a4a]"
+              style={{
+                padding: "0.5rem 1rem",
+                background: "#08775f",
+                color: "white",
+                borderRadius: "9999px",
+                textDecoration: "none",
+                boxShadow: "0 4px 14px rgba(8, 119, 95, 0.3)",
+                border: "2px solid transparent",
+              }}
             >
+              {" "}
               Explore Coffees
             </Link>
           </div>
@@ -99,7 +101,7 @@ export function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-[#08775f]"
+            className="md:hidden mobile-menu-button"
           >
             {mobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -111,18 +113,12 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div
-            className={`md:hidden mt-4 pb-4 flex flex-col gap-4 rounded-xl p-4 shadow-lg ${
-              isDarkContext
-                ? "bg-white/98 border border-[#DEB887]/30"
-                : "bg-white/98 border border-[#DEB887]/20"
-            }`}
-          >
+          <div className="md:hidden mt-4 bg-white/50 backdrop-blur-2xl border border-white/30 rounded-2xl shadow-2xl p-6 flex flex-col space-y-2">
             <Link
               to="/"
               onClick={() => setMobileMenuOpen(false)}
-              className={`py-2 transition-colors ${
-                isActive("/") ? "text-[#08775f]" : "text-gray-800"
+              className={`mobile-nav-link ${
+                isActive("/") ? "mobile-nav-link-active" : ""
               }`}
             >
               Home
@@ -130,8 +126,8 @@ export function Navigation() {
             <Link
               to="/coffees"
               onClick={() => setMobileMenuOpen(false)}
-              className={`py-2 transition-colors ${
-                isActive("/coffees") ? "text-[#08775f]" : "text-gray-800"
+              className={`mobile-nav-link ${
+                isActive("/coffees") ? "mobile-nav-link-active" : ""
               }`}
             >
               Our Coffees
@@ -139,11 +135,18 @@ export function Navigation() {
             <Link
               to="/about"
               onClick={() => setMobileMenuOpen(false)}
-              className={`py-2 transition-colors ${
-                isActive("/about") ? "text-[#08775f]" : "text-gray-800"
+              className={`mobile-nav-link ${
+                isActive("/about") ? "mobile-nav-link-active" : ""
               }`}
             >
               About
+            </Link>
+            <Link
+              to="/coffees"
+              onClick={() => setMobileMenuOpen(false)}
+              className="mobile-explore-button"
+            >
+              Explore Coffees
             </Link>
           </div>
         )}

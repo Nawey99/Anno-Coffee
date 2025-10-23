@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import React from "react";
 import {
   ArrowRight,
   Users,
@@ -11,10 +12,8 @@ import {
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function AboutPage() {
-  const mountainImage = new URL(
-    "../assets/img/Mountains .jpg",
-    import.meta.url
-  ).href;
+  const mountainImage = new URL("../assets/img/Mountains .jpg", import.meta.url)
+    .href;
   const valleyImage = new URL(
     "../assets/img/Valley_With_Tree.jpg",
     import.meta.url
@@ -295,7 +294,7 @@ export function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-[#08775f] via-[#065a4a] to-[#08775f] text-white relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div
             className="absolute inset-0"

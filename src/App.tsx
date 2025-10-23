@@ -14,9 +14,17 @@ import { TermsPage } from "./components/TermsPage";
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col relative">
+        {/* Background layers for glassmorphism effect */}
+        <div className="fixed inset-0 bg-gradient-to-br from-[#DEB887]/10 via-white to-[#08775f]/10 pointer-events-none" />
+        <div className="fixed inset-0 opacity-40 pointer-events-none bg-pattern" />
+        <div className="fixed inset-0 bg-gradient-to-t from-transparent via-transparent to-[#DEB887]/5 pointer-events-none" />
+
+        {/* Navigation */}
         <Navigation />
-        <main className="flex-1">
+
+        {/* Main Content */}
+        <main className="flex-1 relative z-10 pt-20">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/coffees" element={<CoffeesPage />} />
@@ -28,6 +36,8 @@ export default function App() {
             <Route path="/terms" element={<TermsPage />} />
           </Routes>
         </main>
+
+        {/* Footer */}
         <Footer />
       </div>
     </Router>

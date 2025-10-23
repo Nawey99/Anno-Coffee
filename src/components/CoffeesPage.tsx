@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import React from "react";
 import { ArrowRight, MapPin, Thermometer, Droplets } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
@@ -150,7 +151,7 @@ export function CoffeesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/#contact"
-              className="inline-flex items-center gap-2 bg-amber-700 hover:bg-amber-800 text-white px-8 py-4 rounded-full transition-all transform hover:scale-105"
+              className="inline-flex items-center gap-2 bg-[#08775f] hover:bg-[#065a4a] text-white px-8 py-4 rounded-full transition-all transform hover:scale-105"
             >
               Contact Us
               <ArrowRight className="w-5 h-5" />

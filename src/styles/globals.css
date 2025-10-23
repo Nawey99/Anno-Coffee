@@ -210,3 +210,294 @@
 html {
   font-size: var(--font-size);
 }
+
+/* ===========================================
+   GLASSMORPHISM NAVIGATION STYLES
+   =========================================== */
+
+/* Main Navigation Bar */
+.glassmorphism-navbar {
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(222, 184, 135, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced glassmorphism for browsers that support it */
+@supports (backdrop-filter: blur(20px)) {
+  .glassmorphism-navbar {
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+}
+
+/* Navigation Links */
+.nav-link {
+  position: relative;
+  padding: 0.5rem 0;
+  color: #374151;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #08775f;
+  transform: translateY(-1px);
+}
+
+.nav-link-active {
+  color: #08775f;
+  font-weight: 600;
+}
+
+.nav-link-inactive {
+  color: #374151;
+}
+
+.nav-link-inactive:hover {
+  color: #08775f;
+}
+
+/* Navigation Indicator */
+.nav-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #08775f, #065a4a);
+  border-radius: 1px;
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideIn {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* Explore Coffees Button */
+.explore-button {
+  padding: 0.625rem 1.5rem;
+  background: #08775f;
+  color: white;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(8, 119, 95, 0.3);
+  border: 2px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.explore-button:hover {
+  background: #065a4a;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(8, 119, 95, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.explore-button:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 4px 14px rgba(8, 119, 95, 0.3);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-button {
+  color: #08775f;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(222, 184, 135, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.mobile-menu-button:hover {
+  color: #065a4a;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(222, 184, 135, 0.3);
+  transform: scale(1.05);
+}
+
+/* Mobile Navigation Menu */
+.glassmorphism-mobile-menu {
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(222, 184, 135, 0.2);
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced glassmorphism for mobile menu */
+@supports (backdrop-filter: blur(20px)) {
+  .glassmorphism-mobile-menu {
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Navigation Links */
+.mobile-nav-link {
+  display: block;
+  padding: 0.75rem 0;
+  color: #374151;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(222, 184, 135, 0.1);
+}
+
+.mobile-nav-link:last-of-type {
+  border-bottom: none;
+}
+
+.mobile-nav-link:hover {
+  color: #08775f;
+  padding-left: 0.5rem;
+}
+
+.mobile-nav-link-active {
+  color: #08775f;
+  font-weight: 600;
+}
+
+/* Mobile Explore Button */
+.mobile-explore-button {
+  display: block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #08775f;
+  color: white;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 14px rgba(8, 119, 95, 0.3);
+}
+
+.mobile-explore-button:hover {
+  background: #065a4a;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(8, 119, 95, 0.4);
+}
+
+.mobile-explore-button:active {
+  transform: translateY(0) scale(1);
+  box-shadow: 0 4px 14px rgba(8, 119, 95, 0.3);
+}
+
+/* Background Pattern for Glassmorphism Effect */
+.bg-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2308775f' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* General Button Hover Effects */
+button, .btn, [role="button"] {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover, .btn:hover, [role="button"]:hover {
+  transform: translateY(-1px);
+}
+
+button:active, .btn:active, [role="button"]:active {
+  transform: translateY(0);
+}
+
+/* Primary Color Consistency */
+.text-primary {
+  color: #08775f !important;
+}
+
+.bg-primary {
+  background-color: #08775f !important;
+}
+
+.border-primary {
+  border-color: #08775f !important;
+}
+
+.hover\:bg-primary:hover {
+  background-color: #065a4a !important;
+}
+
+.hover\:text-primary:hover {
+  color: #08775f !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .glassmorphism-navbar {
+    background: rgba(255, 255, 255, 0.9);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+  }
+  
+  .glassmorphism-mobile-menu {
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .glassmorphism-navbar {
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom-color: rgba(222, 184, 135, 0.3);
+  }
+  
+  .nav-link {
+    color: #e5e7eb;
+  }
+  
+  .nav-link:hover,
+  .nav-link-active {
+    color: #10b981;
+  }
+  
+  .glassmorphism-mobile-menu {
+    background: rgba(0, 0, 0, 0.85);
+    border-color: rgba(222, 184, 135, 0.3);
+  }
+  
+  .mobile-nav-link {
+    color: #e5e7eb;
+    border-bottom-color: rgba(222, 184, 135, 0.2);
+  }
+  
+  .mobile-nav-link:hover,
+  .mobile-nav-link-active {
+    color: #10b981;
+  }
+}

@@ -1909,14 +1909,14 @@
   --card-foreground: oklch(.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(.145 0 0);
-  --primary: #030213;
+  --primary: #08775f;
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(.95 .0058 264.53);
-  --secondary-foreground: #030213;
+  --secondary: #DEB887;
+  --secondary-foreground: #08775f;
   --muted: #ececf0;
   --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
+  --accent: #c6a86d;
+  --accent-foreground: #08775f;
   --destructive: #d4183d;
   --destructive-foreground: #fff;
   --border: #0000001a;
@@ -1925,21 +1925,33 @@
   --switch-background: #cbced4;
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: oklch(.708 0 0);
-  --chart-1: oklch(.646 .222 41.116);
-  --chart-2: oklch(.6 .118 184.704);
-  --chart-3: oklch(.398 .07 227.392);
-  --chart-4: oklch(.828 .189 84.429);
-  --chart-5: oklch(.769 .188 70.08);
+  --ring: #08775f;
+  --chart-1: #08775f;
+  --chart-2: #DEB887;
+  --chart-3: #c6a86d;
+  --chart-4: #ddc0a4;
+  --chart-5: #bae4e9;
   --radius: .625rem;
   --sidebar: oklch(.985 0 0);
   --sidebar-foreground: oklch(.145 0 0);
-  --sidebar-primary: #030213;
+  --sidebar-primary: #08775f;
   --sidebar-primary-foreground: oklch(.985 0 0);
   --sidebar-accent: oklch(.97 0 0);
   --sidebar-accent-foreground: oklch(.205 0 0);
   --sidebar-border: oklch(.922 0 0);
-  --sidebar-ring: oklch(.708 0 0);
+  --sidebar-ring: #08775f;
+  
+  /* ANNO Coffee Brand Colors */
+  --anno-primary-green: #08775f;
+  --anno-burlywood: #DEB887;
+  --anno-pine-green: #c6a86d;
+  --anno-brunswick-green: #ddc0a4;
+  --anno-champagne: #bae4e9;
+  --anno-white: #ffffff;
+  
+  /* ANNO Coffee Brand Typography */
+  --font-primary: 'Raleway', ui-sans-serif, system-ui, sans-serif;
+  --font-secondary: 'Lato', ui-sans-serif, system-ui, sans-serif;
 }
 
 .dark {
