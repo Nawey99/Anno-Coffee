@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
+  ArrowRight,
   MapPin,
   Thermometer,
   Droplets,
@@ -9,8 +10,13 @@ import {
   Sparkles,
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { usePageLoadAnimation, useScrollAnimation } from "../utils/animations";
 
 export function GujiPage() {
+  usePageLoadAnimation();
+  const heroRef = useScrollAnimation();
+  const detailsRef = useScrollAnimation();
+  const ctaRef = useScrollAnimation();
   const coffeeImage = new URL(
     "../assets/img/Coffee_Beans_Drying.jpg",
     import.meta.url
@@ -34,13 +40,18 @@ export function GujiPage() {
             <ArrowLeft className="w-4 h-4" />
             Back to All Coffees
           </Link>
-          <h1 className="text-6xl md:text-7xl mb-4">Guji</h1>
+          <h1 className="text-6xl md:text-7xl mb-4 font-primary animate-fadeInUp">
+            Guji
+          </h1>
           <p className="text-2xl text-[#DEB887]">Sweet & Clean Perfection</p>
         </div>
       </section>
 
       {/* Details Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section
+        ref={detailsRef}
+        className="py-20 bg-gradient-to-b from-gray-50 to-white scroll-animate"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left Column - Specs */}
@@ -51,8 +62,8 @@ export function GujiPage() {
                 </h2>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4 pb-6 border-b border-gray-200">
-                    <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-green-700" />
+                    <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-[#c6a86d]" />
                     </div>
                     <div>
                       <h3 className="text-lg mb-1 text-gray-900">
@@ -64,8 +75,8 @@ export function GujiPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4 pb-6 border-b border-gray-200">
-                    <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Thermometer className="w-6 h-6 text-green-700" />
+                    <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Thermometer className="w-6 h-6 text-[#c6a86d]" />
                     </div>
                     <div>
                       <h3 className="text-lg mb-1 text-gray-900">
@@ -77,8 +88,8 @@ export function GujiPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4 pb-6 border-b border-gray-200">
-                    <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Droplets className="w-6 h-6 text-green-700" />
+                    <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Droplets className="w-6 h-6 text-[#c6a86d]" />
                     </div>
                     <div>
                       <h3 className="text-lg mb-1 text-gray-900">
@@ -90,8 +101,8 @@ export function GujiPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Coffee className="w-6 h-6 text-green-700" />
+                    <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Coffee className="w-6 h-6 text-[#c6a86d]" />
                     </div>
                     <div>
                       <h3 className="text-lg mb-1 text-gray-900">Varietal</h3>
@@ -104,22 +115,22 @@ export function GujiPage() {
               </div>
 
               {/* Flavor Profile */}
-              <div className="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-8">
+              <div className="bg-gradient-to-br from-[#c6a86d]/10 to-[#DEB887]/10 rounded-2xl p-8">
                 <div className="flex items-center gap-2 mb-6">
-                  <Sparkles className="w-6 h-6 text-green-700" />
+                  <Sparkles className="w-6 h-6 text-[#c6a86d]" />
                   <h2 className="text-3xl text-gray-900">Flavor Profile</h2>
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  <span className="px-4 py-2 bg-white rounded-full border border-green-200 text-green-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Peach
                   </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-teal-200 text-teal-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Cocoa
                   </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-green-200 text-green-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Lemon Candy
                   </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-teal-200 text-teal-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Black Tea
                   </span>
                 </div>
@@ -200,9 +211,12 @@ export function GujiPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-green-900 via-teal-900 to-green-900 text-white">
+      <section
+        ref={ctaRef}
+        className="py-20 bg-gradient-to-br from-green-900 via-teal-900 to-green-900 text-white scroll-animate"
+      >
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl mb-6">
+          <h2 className="text-4xl md:text-5xl mb-6 font-primary">
             Interested in Guji Coffee?
           </h2>
           <p className="text-xl text-green-100 mb-10 leading-relaxed">
@@ -217,11 +231,18 @@ export function GujiPage() {
               Contact Us
             </Link>
             <Link
+              to="/coffees/yirgacheffe"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-full border border-white/30 transition-all"
+            >
+              <ArrowRight className="w-4 h-4" />
+              Next: Yirgacheffe
+            </Link>
+            <Link
               to="/coffees"
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-full border border-white/30 transition-all"
             >
               <ArrowLeft className="w-4 h-4" />
-              View All Coffees
+              All Coffees
             </Link>
           </div>
         </div>

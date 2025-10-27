@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
+  ArrowRight,
   MapPin,
   Thermometer,
   Droplets,
@@ -9,9 +10,14 @@ import {
   Sparkles,
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { usePageLoadAnimation, useScrollAnimation } from "../utils/animations";
 import heroYirg from "../assets/9137a3113be679882a8f8462339fb937106be9f8.png";
 
 export function YirgacheffePage() {
+  usePageLoadAnimation();
+  const heroRef = useScrollAnimation();
+  const detailsRef = useScrollAnimation();
+  const ctaRef = useScrollAnimation();
   const coffeeImage = new URL(
     "../assets/img/Edited_Valley_Photo.jpg",
     import.meta.url
@@ -35,7 +41,9 @@ export function YirgacheffePage() {
             <ArrowLeft className="w-4 h-4" />
             Back to All Coffees
           </Link>
-          <h1 className="text-6xl md:text-7xl mb-4">Yirgacheffe</h1>
+          <h1 className="text-6xl md:text-7xl mb-4 font-primary animate-fadeInUp">
+            Yirgacheffe
+          </h1>
           <p className="text-2xl text-[#DEB887]">Floral & Fruity Excellence</p>
         </div>
       </section>
@@ -52,8 +60,8 @@ export function YirgacheffePage() {
                 </h2>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4 pb-6 border-b border-gray-200">
-                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-blue-700" />
+                    <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-[#c6a86d]" />
                     </div>
                     <div>
                       <h3 className="text-lg mb-1 text-gray-900">
@@ -65,8 +73,8 @@ export function YirgacheffePage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4 pb-6 border-b border-gray-200">
-                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Thermometer className="w-6 h-6 text-blue-700" />
+                    <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Thermometer className="w-6 h-6 text-[#c6a86d]" />
                     </div>
                     <div>
                       <h3 className="text-lg mb-1 text-gray-900">
@@ -78,8 +86,8 @@ export function YirgacheffePage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4 pb-6 border-b border-gray-200">
-                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Droplets className="w-6 h-6 text-blue-700" />
+                    <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Droplets className="w-6 h-6 text-[#c6a86d]" />
                     </div>
                     <div>
                       <h3 className="text-lg mb-1 text-gray-900">
@@ -89,8 +97,8 @@ export function YirgacheffePage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Coffee className="w-6 h-6 text-blue-700" />
+                    <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Coffee className="w-6 h-6 text-[#c6a86d]" />
                     </div>
                     <div>
                       <h3 className="text-lg mb-1 text-gray-900">Varietal</h3>
@@ -103,28 +111,28 @@ export function YirgacheffePage() {
               </div>
 
               {/* Flavor Profile */}
-              <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8">
+              <div className="bg-gradient-to-br from-[#c6a86d]/10 to-[#DEB887]/10 rounded-2xl p-8">
                 <div className="flex items-center gap-2 mb-6">
-                  <Sparkles className="w-6 h-6 text-blue-700" />
+                  <Sparkles className="w-6 h-6 text-[#c6a86d]" />
                   <h2 className="text-3xl text-gray-900">Flavor Profile</h2>
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  <span className="px-4 py-2 bg-white rounded-full border border-blue-200 text-blue-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Jasmine
                   </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-purple-200 text-purple-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Bergamot
                   </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-blue-200 text-blue-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Blueberry
                   </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-purple-200 text-purple-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Floral
                   </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-blue-200 text-blue-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Bright Acidity
                   </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-purple-200 text-purple-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Clean Finish
                   </span>
                 </div>
@@ -196,9 +204,12 @@ export function YirgacheffePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-900 via-purple-900 to-blue-900 text-white">
+      <section
+        ref={ctaRef}
+        className="py-20 bg-gradient-to-br from-blue-900 via-purple-900 to-blue-900 text-white scroll-animate"
+      >
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl mb-6">
+          <h2 className="text-4xl md:text-5xl mb-6 font-primary">
             Interested in Yirgacheffe Coffee?
           </h2>
           <p className="text-xl text-blue-100 mb-10 leading-relaxed">
@@ -213,11 +224,18 @@ export function YirgacheffePage() {
               Contact Us
             </Link>
             <Link
+              to="/coffees/sidama"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-full border border-white/30 transition-all"
+            >
+              <ArrowRight className="w-4 h-4" />
+              Next: Sidama
+            </Link>
+            <Link
               to="/coffees"
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-full border border-white/30 transition-all"
             >
               <ArrowLeft className="w-4 h-4" />
-              View All Coffees
+              All Coffees
             </Link>
           </div>
         </div>

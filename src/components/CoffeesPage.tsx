@@ -2,8 +2,13 @@ import { Link } from "react-router-dom";
 import React from "react";
 import { ArrowRight, MapPin, Thermometer, Droplets } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { usePageLoadAnimation, useScrollAnimation } from "../utils/animations";
 
 export function CoffeesPage() {
+  usePageLoadAnimation();
+  const headerRef = useScrollAnimation();
+  const cardsRef = useScrollAnimation();
+  const ctaRef = useScrollAnimation();
   const coffees = [
     {
       id: "yirgacheffe",
@@ -65,7 +70,9 @@ export function CoffeesPage() {
           <div className="inline-block mb-4 px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full">
             <span className="text-amber-200">Premium Ethiopian Varieties</span>
           </div>
-          <h1 className="text-5xl md:text-6xl mb-6">Our Coffees</h1>
+          <h1 className="text-5xl md:text-6xl mb-6 font-primary animate-fadeInUp">
+            Our Coffees
+          </h1>
           <p className="text-xl text-amber-100 leading-relaxed max-w-3xl mx-auto">
             Whether you love bright flavors, balanced chocolate tones, or a
             sweet finish, Anno Coffee has a perfect variety for you.
@@ -74,20 +81,24 @@ export function CoffeesPage() {
       </section>
 
       {/* Coffee Cards */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section
+        ref={cardsRef}
+        className="py-20 bg-gradient-to-b from-gray-50 to-white scroll-animate"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {coffees.map((coffee) => (
+            {coffees.map((coffee, index) => (
               <Link
                 key={coffee.id}
                 to={coffee.path}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 animate-fadeInUp"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="relative h-64 overflow-hidden">
                   <ImageWithFallback
                     src={coffee.image}
                     alt={coffee.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out"
                   />
                   <div
                     className={`absolute inset-0 bg-gradient-to-t ${coffee.color} opacity-40 group-hover:opacity-10 transition-opacity`}
@@ -110,23 +121,23 @@ export function CoffeesPage() {
 
                   <div className="space-y-3 mb-6">
                     <div className="flex items-center gap-2 text-gray-700">
-                      <MapPin className="w-4 h-4 text-amber-700" />
+                      <MapPin className="w-4 h-4 text-[#c6a86d]" />
                       <span className="text-sm">{coffee.region}</span>
                     </div>
                     <div className="flex items-center gap-2 text-gray-700">
-                      <Thermometer className="w-4 h-4 text-amber-700" />
+                      <Thermometer className="w-4 h-4 text-[#c6a86d]" />
                       <span className="text-sm">
                         Altitude: {coffee.altitude}
                       </span>
                     </div>
                     <div className="flex items-center gap-2 text-gray-700">
-                      <Droplets className="w-4 h-4 text-amber-700" />
+                      <Droplets className="w-4 h-4 text-[#c6a86d]" />
                       <span className="text-sm">Process: {coffee.process}</span>
                     </div>
                   </div>
 
                   <div className="pt-4 border-t border-gray-100">
-                    <span className="inline-flex items-center gap-2 text-amber-900 group-hover:gap-3 transition-all">
+                    <span className="inline-flex items-center gap-2 text-[#c6a86d] group-hover:gap-3 transition-all">
                       Learn More
                       <ArrowRight className="w-4 h-4" />
                     </span>

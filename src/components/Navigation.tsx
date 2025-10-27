@@ -11,8 +11,10 @@ export function Navigation() {
     return location.pathname === path;
   };
 
-  const primaryLogo = new URL("../assets/img/Primary_Logo.png", import.meta.url)
-    .href;
+  const primaryLogo = new URL(
+    "../assets/img/Secondary_Logo.png",
+    import.meta.url
+  ).href;
   const secondaryLogo = new URL(
     "../assets/img/Secondary_Logo.png",
     import.meta.url
@@ -38,17 +40,17 @@ export function Navigation() {
         WebkitBackdropFilter: "blur(24px) saturate(180%)",
       }}
     >
-      <div className="max-w-7xl mx-auto px-6 py-4">
+      <div className="mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <img
               src={isDarkContext ? secondaryLogo : primaryLogo}
-              alt="ANNO Coffee logo"
-              className="w-8 h-8 object-contain"
+              alt="Anno Coffee logo"
+              className="w-10 h-8 object-contain"
             />
-            <span className="text-2xl tracking-tight font-bold text-[#08775f]">
-              ANNO Coffee
+            <span className="text-2xl tracking-tight font-bold text-[#08775f] font-primary">
+              Anno Coffee
             </span>
           </Link>
 

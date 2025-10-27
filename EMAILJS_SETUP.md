@@ -76,3 +76,4 @@ If emails aren't being sent:
 4. Ensure your EmailJS service is properly configured
 
 The integration is now complete and ready to use!
+

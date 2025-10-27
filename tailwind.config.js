@@ -60,6 +60,13 @@ module.exports = {
             animation: {
                 'slideIn': 'slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 'slideDown': 'slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                'fadeInUp': 'fadeInUp 1s cubic-bezier(0.4, 0, 0.2, 1)',
+                'fadeInLeft': 'fadeInLeft 1s cubic-bezier(0.4, 0, 0.2, 1)',
+                'fadeInRight': 'fadeInRight 1s cubic-bezier(0.4, 0, 0.2, 1)',
+                'scaleIn': 'scaleIn 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                'slideInUp': 'slideInUp 1s cubic-bezier(0.4, 0, 0.2, 1)',
+                'fadeOut': 'fadeOut 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                'fadeIn': 'fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
             },
             keyframes: {
                 slideIn: {
@@ -80,6 +87,72 @@ module.exports = {
                     'to': {
                         opacity: '1',
                         transform: 'translateY(0)',
+                    },
+                },
+                fadeInUp: {
+                    '0%': {
+                        opacity: '0',
+                        transform: 'translateY(60px)'
+                    },
+                    '100%': {
+                        opacity: '1',
+                        transform: 'translateY(0)'
+                    },
+                },
+                fadeInLeft: {
+                    '0%': {
+                        opacity: '0',
+                        transform: 'translateX(-30px)'
+                    },
+                    '100%': {
+                        opacity: '1',
+                        transform: 'translateX(0)'
+                    },
+                },
+                fadeInRight: {
+                    '0%': {
+                        opacity: '0',
+                        transform: 'translateX(30px)'
+                    },
+                    '100%': {
+                        opacity: '1',
+                        transform: 'translateX(0)'
+                    },
+                },
+                scaleIn: {
+                    '0%': {
+                        opacity: '0',
+                        transform: 'scale(0.9)'
+                    },
+                    '100%': {
+                        opacity: '1',
+                        transform: 'scale(1)'
+                    },
+                },
+                slideInUp: {
+                    '0%': {
+                        opacity: '0',
+                        transform: 'translateY(60px)'
+                    },
+                    '100%': {
+                        opacity: '1',
+                        transform: 'translateY(0)'
+                    },
+                },
+                fadeOut: {
+                    '0%': {
+                        opacity: '1',
+                    },
+                    '100%': {
+                        opacity: '0',
+                    },
+                },
+                fadeIn: {
+                    '0%': {
+                        opacity: '0',
+                    },
+                    '100%': {
+                        opacity: '1',
                     },
                 },
             },

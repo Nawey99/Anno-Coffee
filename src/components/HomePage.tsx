@@ -11,8 +11,17 @@ import {
   MapPin,
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { usePageLoadAnimation, useScrollAnimation } from "../utils/animations";
 
 export function HomePage() {
+  usePageLoadAnimation();
+  const heroRef = useScrollAnimation();
+  const featuresRef = useScrollAnimation();
+  const familyRef = useScrollAnimation();
+  const greenCoffeeRef = useScrollAnimation();
+  const sustainabilityRef = useScrollAnimation();
+  const ctaRef = useScrollAnimation();
+  const contactRef = useScrollAnimation();
   const farmImage = new URL(
     "../assets/img/Coffee_Beans_Sunset.jpg",
     import.meta.url
@@ -114,14 +123,20 @@ export function HomePage() {
               From the Sacred Hills of Anno
             </span>
           </div>
-          <h1 className="text-6xl md:text-7xl mb-6 tracking-tight font-bold">
-            ANNO Coffee
+          <h1 className="text-6xl md:text-7xl mb-6 tracking-tight font-bold font-primary animate-fadeInUp">
+            Anno Coffee
           </h1>
-          <p className="text-xl md:text-2xl mb-10 text-gray-100 max-w-2xl mx-auto leading-relaxed">
+          <p
+            className="text-xl md:text-2xl mb-10 text-gray-100 max-w-2xl mx-auto leading-relaxed animate-fadeInUp"
+            style={{ animationDelay: "0.2s" }}
+          >
             Experience the sacred tradition of Ethiopian coffee from Anno, a
             refreshing hill known to be sacred in Oromo people's Gada System
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div
+            className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp"
+            style={{ animationDelay: "0.4s" }}
+          >
             <Link
               to="/coffees"
               className="inline-flex items-center gap-2 bg-[#08775f] hover:bg-[#065a4a] text-white px-8 py-4 rounded-full transition-all transform hover:scale-105"
@@ -140,12 +155,18 @@ export function HomePage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gradient-to-b from-[#DEB887]/10 to-white">
+      <section
+        ref={featuresRef}
+        className="py-20 bg-gradient-to-b from-[#DEB887]/10 to-white scroll-animate"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#08775f]/10 rounded-full mb-6">
-                <Leaf className="w-8 h-8 text-[#08775f]" />
+            <div
+              className="text-center p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow animate-fadeInUp"
+              style={{ animationDelay: "0.1s" }}
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#c6a86d]/20 rounded-full mb-6">
+                <Leaf className="w-8 h-8 text-[#c6a86d]" />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">Sacred Origins</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -153,8 +174,11 @@ export function HomePage() {
                 plants and animals are all feared and respected
               </p>
             </div>
-            <div className="text-center p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#DEB887]/20 rounded-full mb-6">
+            <div
+              className="text-center p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow animate-fadeInUp"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#c6a86d]/20 rounded-full mb-6">
                 <Award className="w-8 h-8 text-[#c6a86d]" />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
@@ -166,9 +190,12 @@ export function HomePage() {
                 production
               </p>
             </div>
-            <div className="text-center p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#bae4e9]/30 rounded-full mb-6">
-                <Users className="w-8 h-8 text-[#08775f]" />
+            <div
+              className="text-center p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow animate-fadeInUp"
+              style={{ animationDelay: "0.3s" }}
+            >
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-[#c6a86d]/20 rounded-full mb-6">
+                <Users className="w-8 h-8 text-[#c6a86d]" />
               </div>
               <h3 className="text-xl mb-3 text-gray-900">
                 Direct from Ethiopia
@@ -183,15 +210,17 @@ export function HomePage() {
       </section>
 
       {/* Family-Owned Section */}
-      <section className="py-20 bg-white">
+      <section ref={familyRef} className="py-20 bg-white scroll-animate">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
               <div className="inline-block mb-4 px-3 py-1 bg-[#DEB887]/20 text-[#08775f] rounded-full">
                 Our Identity
               </div>
-              <h2 className="text-4xl md:text-5xl mb-6 text-gray-900 leading-tight">
-                Family-Owned. 25 Years of Passion for Coffee
+              <h2 className="text-4xl md:text-5xl mb-6 text-gray-900 leading-tight font-primary">
+                <span className="font-bold">Family Owned</span>
+                <br />
+                25 Years of Passion for Coffee
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
                 At Anno Coffee, we import the finest green coffee beans from
@@ -227,7 +256,10 @@ export function HomePage() {
       </section>
 
       {/* Green Coffee Selection Process */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section
+        ref={greenCoffeeRef}
+        className="py-20 bg-gradient-to-b from-gray-50 to-white scroll-animate"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -242,10 +274,12 @@ export function HomePage() {
             </div>
             <div>
               <div className="inline-block mb-4 px-3 py-1 bg-[#DEB887]/20 text-[#08775f] rounded-full">
-                Core Elements
+                Our Commitment
               </div>
-              <h2 className="text-4xl md:text-5xl mb-6 text-gray-900 leading-tight">
-                Our Green Coffee Selection Process
+              <h2 className="text-4xl md:text-5xl mb-6 text-gray-900 leading-tight font-primary">
+                <span className="font-bold">Our Green Coffee</span>
+                <br />
+                Selection Process
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
                 At Anno Coffee, we carefully select the highestquality green
@@ -259,13 +293,13 @@ export function HomePage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <span className="px-4 py-2 bg-[#DEB887]/20 text-[#08775f] rounded-full border border-[#DEB887]/30">
-                  Coffee Bean
+                  Quality Assurance
                 </span>
                 <span className="px-4 py-2 bg-[#DEB887]/20 text-[#08775f] rounded-full border border-[#DEB887]/30">
-                  Mountain Representation
+                  Direct Trade
                 </span>
                 <span className="px-4 py-2 bg-[#DEB887]/20 text-[#08775f] rounded-full border border-[#DEB887]/30">
-                  Sacred Origins
+                  Sustainable Practices
                 </span>
               </div>
             </div>
@@ -274,15 +308,20 @@ export function HomePage() {
       </section>
 
       {/* Sustainability Section */}
-      <section className="py-20 bg-white">
+      <section
+        ref={sustainabilityRef}
+        className="py-20 bg-white scroll-animate"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="order-2 md:order-1">
               <div className="inline-block mb-4 px-3 py-1 bg-[#08775f]/10 text-[#08775f] rounded-full">
-                Color Palette
+                Our Commitment
               </div>
-              <h2 className="text-4xl md:text-5xl mb-6 text-gray-900 leading-tight">
-                Sustainability From Seed to Cup
+              <h2 className="text-4xl md:text-5xl mb-6 text-gray-900 leading-tight font-primary">
+                <span className="font-bold">Sustainability</span>
+                <br />
+                From Seed to Cup
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
                 At Anno Coffee, we are committed to reducing our carbon
@@ -294,7 +333,6 @@ export function HomePage() {
                 and are paid fairly for their hard work. We are also committed
                 to using eco-friendly packaging and shipping methods
               </p>
-              
             </div>
             <div className="order-1 md:order-2">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
@@ -356,8 +394,8 @@ export function HomePage() {
               {/* Success/Error Messages */}
               {submitStatus === "success" && (
                 <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
-                  Thank you! Your message has been sent successfully. We'll get
-                  back to you soon.
+                  Thanks for reaching out! Your message has been received and is
+                  brewing — we'll get back to you shortly.
                 </div>
               )}
               {submitStatus === "error" && (
@@ -445,20 +483,20 @@ export function HomePage() {
           {/* Contact Info */}
           <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
             <div className="flex flex-col items-center gap-2">
-              <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
-                <Mail className="w-6 h-6 text-amber-900" />
+              <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-full flex items-center justify-center">
+                <Mail className="w-6 h-6 text-[#c6a86d]" />
               </div>
               <p className="text-gray-600">info@annocoffee.com</p>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
-                <Phone className="w-6 h-6 text-amber-900" />
+              <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-full flex items-center justify-center">
+                <Phone className="w-6 h-6 text-[#c6a86d]" />
               </div>
               <p className="text-gray-600">+1 (312) 555-0123</p>
             </div>
             <div className="flex flex-col items-center gap-2">
-              <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center">
-                <MapPin className="w-6 h-6 text-amber-900" />
+              <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-full flex items-center justify-center">
+                <MapPin className="w-6 h-6 text-[#c6a86d]" />
               </div>
               <p className="text-gray-600">Chicago, Illinois</p>
             </div>

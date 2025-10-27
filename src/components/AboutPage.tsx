@@ -10,8 +10,16 @@ import {
   Leaf,
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { usePageLoadAnimation, useScrollAnimation } from "../utils/animations";
 
 export function AboutPage() {
+  usePageLoadAnimation();
+  const heroRef = useScrollAnimation();
+  const missionRef = useScrollAnimation();
+  const familyRef = useScrollAnimation();
+  const heritageRef = useScrollAnimation();
+  const approachRef = useScrollAnimation();
+  const ctaRef = useScrollAnimation();
   const mountainImage = new URL("../assets/img/Mountains .jpg", import.meta.url)
     .href;
   const valleyImage = new URL(
@@ -39,7 +47,7 @@ export function AboutPage() {
               From the Sacred Hills of Anno
             </span>
           </div>
-          <h1 className="text-6xl md:text-7xl mb-6 tracking-tight font-bold">
+          <h1 className="text-6xl md:text-7xl mb-6 tracking-tight font-bold font-primary animate-fadeInUp">
             Our Story
           </h1>
           <p className="text-2xl text-gray-100 leading-relaxed">
@@ -50,24 +58,33 @@ export function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-gradient-to-b from-[#DEB887]/10 to-white">
+      <section
+        ref={missionRef}
+        className="py-20 bg-gradient-to-b from-[#DEB887]/10 to-white scroll-animate"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-4xl md:text-5xl mb-6 text-gray-900">
-              Our Logo is Our Identity
+            <h2 className="text-4xl md:text-5xl mb-6 text-gray-900 font-primary">
+              Anno Mountain
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed">
-              ANNO Coffee brings you the finest Ethiopian coffee from the sacred
-              hills of Anno, where tradition meets excellence. Our logo
-              represents our identity - a coffee bean and mountain, symbolizing
-              our commitment to quality and our sacred origins.
+              The higher the farm the better the coffee. Part of what makes
+              Ethiopia's arabica coffee the best is that the farms are located
+              on the highest plateaus and mountains. Our coffee is cultivated at
+              elevations above 2,200 meters, where the high-altitude climate
+              nurtures beans with exceptional taste and distinctive, vibrant
+              flavors. Grown on a Rainforest Alliance Certified farm, our coffee
+              embodies both quality and sustainability.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-[#08775f]/10 rounded-2xl flex items-center justify-center mb-6">
-                <Heart className="w-8 h-8 text-[#08775f]" />
+            <div
+              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow animate-fadeInUp"
+              style={{ animationDelay: "0.1s" }}
+            >
+              <div className="w-16 h-16 bg-[#c6a86d]/20 rounded-2xl flex items-center justify-center mb-6">
+                <Heart className="w-8 h-8 text-[#c6a86d]" />
               </div>
               <h3 className="text-2xl mb-4 text-gray-900">Sacred Origins</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -75,8 +92,11 @@ export function AboutPage() {
                 plants and animals are all feared and respected.
               </p>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-[#DEB887]/20 rounded-2xl flex items-center justify-center mb-6">
+            <div
+              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow animate-fadeInUp"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <div className="w-16 h-16 bg-[#c6a86d]/20 rounded-2xl flex items-center justify-center mb-6">
                 <Globe className="w-8 h-8 text-[#c6a86d]" />
               </div>
               <h3 className="text-2xl mb-4 text-gray-900">
@@ -88,9 +108,12 @@ export function AboutPage() {
                 production.
               </p>
             </div>
-            <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-[#bae4e9]/30 rounded-2xl flex items-center justify-center mb-6">
-                <Award className="w-8 h-8 text-[#08775f]" />
+            <div
+              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-shadow animate-fadeInUp"
+              style={{ animationDelay: "0.3s" }}
+            >
+              <div className="w-16 h-16 bg-[#c6a86d]/20 rounded-2xl flex items-center justify-center mb-6">
+                <Award className="w-8 h-8 text-[#c6a86d]" />
               </div>
               <h3 className="text-2xl mb-4 text-gray-900">
                 Quality & Tradition
@@ -105,14 +128,14 @@ export function AboutPage() {
       </section>
 
       {/* Family Story Section */}
-      <section className="py-20 bg-white">
+      <section ref={familyRef} className="py-20 bg-white scroll-animate">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-block mb-4 px-3 py-1 bg-amber-100 text-amber-900 rounded-full">
-                The Markos-Sirakis Family
+                Family Legacy
               </div>
-              <h2 className="text-4xl md:text-5xl mb-6 text-gray-900 leading-tight">
+              <h2 className="text-4xl md:text-5xl mb-6 text-gray-900 leading-tight font-primary">
                 A Family Legacy Built on Excellence
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
@@ -164,7 +187,10 @@ export function AboutPage() {
       </section>
 
       {/* Ethiopian Heritage Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
+      <section
+        ref={heritageRef}
+        className="py-20 bg-gradient-to-b from-gray-50 to-white scroll-animate"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1">
@@ -208,10 +234,13 @@ export function AboutPage() {
       </section>
 
       {/* Our Approach Section */}
-      <section className="py-20 bg-white">
+      <section
+        ref={approachRef}
+        className="py-20 bg-gradient-to-br from-[#08775f]/5 via-[#DEB887]/10 to-[#08775f]/5 scroll-animate"
+      >
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl mb-6 text-gray-900">
+            <h2 className="text-4xl md:text-5xl mb-6 text-gray-900 font-primary">
               Our Approach
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -221,8 +250,11 @@ export function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="relative bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8">
-              <div className="w-12 h-12 bg-amber-600 text-white rounded-xl flex items-center justify-center mb-6">
+            <div
+              className="relative bg-gradient-to-br from-[#c6a86d]/10 to-[#DEB887]/10 rounded-2xl p-8 animate-fadeInUp"
+              style={{ animationDelay: "0.1s" }}
+            >
+              <div className="w-12 h-12 bg-[#c6a86d] text-white rounded-xl flex items-center justify-center mb-6">
                 <Users className="w-6 h-6" />
               </div>
               <h3 className="text-xl mb-4 text-gray-900">
@@ -234,8 +266,11 @@ export function AboutPage() {
               </p>
             </div>
 
-            <div className="relative bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-8">
-              <div className="w-12 h-12 bg-green-600 text-white rounded-xl flex items-center justify-center mb-6">
+            <div
+              className="relative bg-gradient-to-br from-[#c6a86d]/10 to-[#DEB887]/10 rounded-2xl p-8 animate-fadeInUp"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <div className="w-12 h-12 bg-[#c6a86d] text-white rounded-xl flex items-center justify-center mb-6">
                 <Leaf className="w-6 h-6" />
               </div>
               <h3 className="text-xl mb-4 text-gray-900">Organic Practices</h3>
@@ -246,8 +281,11 @@ export function AboutPage() {
               </p>
             </div>
 
-            <div className="relative bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center mb-6">
+            <div
+              className="relative bg-gradient-to-br from-[#c6a86d]/10 to-[#DEB887]/10 rounded-2xl p-8 animate-fadeInUp"
+              style={{ animationDelay: "0.3s" }}
+            >
+              <div className="w-12 h-12 bg-[#c6a86d] text-white rounded-xl flex items-center justify-center mb-6">
                 <Coffee className="w-6 h-6" />
               </div>
               <h3 className="text-xl mb-4 text-gray-900">Quality Control</h3>
@@ -257,8 +295,11 @@ export function AboutPage() {
               </p>
             </div>
 
-            <div className="relative bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-8">
-              <div className="w-12 h-12 bg-purple-600 text-white rounded-xl flex items-center justify-center mb-6">
+            <div
+              className="relative bg-gradient-to-br from-[#c6a86d]/10 to-[#DEB887]/10 rounded-2xl p-8 animate-fadeInUp"
+              style={{ animationDelay: "0.4s" }}
+            >
+              <div className="w-12 h-12 bg-[#c6a86d] text-white rounded-xl flex items-center justify-center mb-6">
                 <Award className="w-6 h-6" />
               </div>
               <h3 className="text-xl mb-4 text-gray-900">Premium Selection</h3>
@@ -268,8 +309,11 @@ export function AboutPage() {
               </p>
             </div>
 
-            <div className="relative bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-8">
-              <div className="w-12 h-12 bg-amber-600 text-white rounded-xl flex items-center justify-center mb-6">
+            <div
+              className="relative bg-gradient-to-br from-[#c6a86d]/10 to-[#DEB887]/10 rounded-2xl p-8 animate-fadeInUp"
+              style={{ animationDelay: "0.5s" }}
+            >
+              <div className="w-12 h-12 bg-[#c6a86d] text-white rounded-xl flex items-center justify-center mb-6">
                 <Heart className="w-6 h-6" />
               </div>
               <h3 className="text-xl mb-4 text-gray-900">Community Support</h3>
@@ -279,8 +323,11 @@ export function AboutPage() {
               </p>
             </div>
 
-            <div className="relative bg-gradient-to-br from-teal-50 to-cyan-50 rounded-2xl p-8">
-              <div className="w-12 h-12 bg-teal-600 text-white rounded-xl flex items-center justify-center mb-6">
+            <div
+              className="relative bg-gradient-to-br from-[#c6a86d]/10 to-[#DEB887]/10 rounded-2xl p-8 animate-fadeInUp"
+              style={{ animationDelay: "0.6s" }}
+            >
+              <div className="w-12 h-12 bg-[#c6a86d] text-white rounded-xl flex items-center justify-center mb-6">
                 <Globe className="w-6 h-6" />
               </div>
               <h3 className="text-xl mb-4 text-gray-900">Environmental Care</h3>
@@ -304,8 +351,8 @@ export function AboutPage() {
           />
         </div>
         <div className="relative max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl mb-6 leading-tight">
-            Experience the Sacred Tradition of ANNO Coffee
+          <h2 className="text-4xl md:text-5xl mb-6 leading-tight font-primary">
+            Experience the Sacred Tradition of Anno Coffee
           </h2>
           <p className="text-xl mb-10 text-[#DEB887] leading-relaxed">
             Join us in celebrating Ethiopian coffee heritage from the sacred

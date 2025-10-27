@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
+  ArrowRight,
   MapPin,
   Thermometer,
   Droplets,
@@ -9,9 +10,14 @@ import {
   Sparkles,
 } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { usePageLoadAnimation, useScrollAnimation } from "../utils/animations";
 import heroSidama from "../assets/9942fe59d81492535eb263f6c0da7e41409fc43d.png";
 
 export function SidamaPage() {
+  usePageLoadAnimation();
+  const heroRef = useScrollAnimation();
+  const detailsRef = useScrollAnimation();
+  const ctaRef = useScrollAnimation();
   const coffeeImage = new URL(
     "../assets/img/Coffee_Beans_Daylight.jpg",
     import.meta.url
@@ -35,7 +41,9 @@ export function SidamaPage() {
             <ArrowLeft className="w-4 h-4" />
             Back to All Coffees
           </Link>
-          <h1 className="text-6xl md:text-7xl mb-4">Sidama</h1>
+          <h1 className="text-6xl md:text-7xl mb-4 font-primary animate-fadeInUp">
+            Sidama
+          </h1>
           <p className="text-2xl text-[#DEB887]">Balanced & Complex Harmony</p>
         </div>
       </section>
@@ -52,8 +60,8 @@ export function SidamaPage() {
                 </h2>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4 pb-6 border-b border-gray-200">
-                    <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-amber-700" />
+                    <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-[#c6a86d]" />
                     </div>
                     <div>
                       <h3 className="text-lg mb-1 text-gray-900">
@@ -65,8 +73,8 @@ export function SidamaPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4 pb-6 border-b border-gray-200">
-                    <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Thermometer className="w-6 h-6 text-amber-700" />
+                    <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Thermometer className="w-6 h-6 text-[#c6a86d]" />
                     </div>
                     <div>
                       <h3 className="text-lg mb-1 text-gray-900">
@@ -78,8 +86,8 @@ export function SidamaPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4 pb-6 border-b border-gray-200">
-                    <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Droplets className="w-6 h-6 text-amber-700" />
+                    <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Droplets className="w-6 h-6 text-[#c6a86d]" />
                     </div>
                     <div>
                       <h3 className="text-lg mb-1 text-gray-900">
@@ -89,8 +97,8 @@ export function SidamaPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Coffee className="w-6 h-6 text-amber-700" />
+                    <div className="w-12 h-12 bg-[#c6a86d]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <Coffee className="w-6 h-6 text-[#c6a86d]" />
                     </div>
                     <div>
                       <h3 className="text-lg mb-1 text-gray-900">Varietal</h3>
@@ -103,28 +111,28 @@ export function SidamaPage() {
               </div>
 
               {/* Flavor Profile */}
-              <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8">
+              <div className="bg-gradient-to-br from-[#c6a86d]/10 to-[#DEB887]/10 rounded-2xl p-8">
                 <div className="flex items-center gap-2 mb-6">
-                  <Sparkles className="w-6 h-6 text-amber-700" />
+                  <Sparkles className="w-6 h-6 text-[#c6a86d]" />
                   <h2 className="text-3xl text-gray-900">Flavor Profile</h2>
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  <span className="px-4 py-2 bg-white rounded-full border border-amber-200 text-amber-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Chocolate
                   </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-orange-200 text-orange-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Citrus
                   </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-amber-200 text-amber-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Stone Fruit
                   </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-orange-200 text-orange-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Balanced
                   </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-amber-200 text-amber-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Sweet Body
                   </span>
-                  <span className="px-4 py-2 bg-white rounded-full border border-orange-200 text-orange-900">
+                  <span className="px-4 py-2 bg-white rounded-full border border-[#c6a86d]/30 text-[#c6a86d]">
                     Complex
                   </span>
                 </div>
@@ -197,9 +205,12 @@ export function SidamaPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-amber-900 via-orange-900 to-amber-900 text-white">
+      <section
+        ref={ctaRef}
+        className="py-20 bg-gradient-to-br from-amber-900 via-orange-900 to-amber-900 text-white scroll-animate"
+      >
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl mb-6">
+          <h2 className="text-4xl md:text-5xl mb-6 font-primary">
             Interested in Sidama Coffee?
           </h2>
           <p className="text-xl text-amber-100 mb-10 leading-relaxed">
@@ -214,11 +225,18 @@ export function SidamaPage() {
               Contact Us
             </Link>
             <Link
+              to="/coffees/guji"
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-full border border-white/30 transition-all"
+            >
+              <ArrowRight className="w-4 h-4" />
+              Next: Guji
+            </Link>
+            <Link
               to="/coffees"
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-full border border-white/30 transition-all"
             >
               <ArrowLeft className="w-4 h-4" />
-              View All Coffees
+              All Coffees
             </Link>
           </div>
         </div>
