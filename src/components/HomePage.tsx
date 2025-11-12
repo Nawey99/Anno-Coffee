@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import {
@@ -108,7 +109,20 @@ export function HomePage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white space-y-24 md:space-y-32">
+      <Helmet>
+        <title>Anno Coffee | Ethiopian Green Coffee Importers</title>
+        <meta
+          name="description"
+          content="Discover authentic Ethiopian green coffee from Anno’s highlands. Family-owned, sustainably sourced, and crafted with tradition."
+        />
+        <meta property="og:title" content="Anno Coffee" />
+        <meta
+          property="og:description"
+          content="Authentic Ethiopian green coffee from Anno’s highlands."
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         <div
@@ -119,9 +133,7 @@ export function HomePage() {
         </div>
         <div className="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
           <div className="inline-block mb-6 px-4 py-2 bg-[#08775f]/30 backdrop-blur-sm border border-[#08775f]/50 rounded-full">
-            <span className="text-[#DEB887]">
-              From the Sacred Hills of Anno
-            </span>
+            <span className="text-[#DEB887]">From the highlands of Anno</span>
           </div>
           <h1 className="text-6xl md:text-7xl mb-6 tracking-tight font-bold font-primary animate-fadeInUp">
             Anno Coffee
@@ -130,8 +142,10 @@ export function HomePage() {
             className="text-xl md:text-2xl mb-10 text-gray-100 max-w-2xl mx-auto leading-relaxed animate-fadeInUp"
             style={{ animationDelay: "0.2s" }}
           >
-            Experience the sacred tradition of Ethiopian coffee from Anno, a
-            refreshing hill known to be sacred in Oromo people's Gada System
+            Discover the timeless heritage of Ethiopian coffee from the lush
+            highlands of Anno — where fertile soil, gentle rains, and
+            generations of craftsmanship come together to create coffee of
+            remarkable depth and character.
           </p>
           <div
             className="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp"
@@ -168,10 +182,14 @@ export function HomePage() {
               <div className="inline-flex items-center justify-center w-16 h-16 bg-[#c6a86d]/20 rounded-full mb-6">
                 <Leaf className="w-8 h-8 text-[#c6a86d]" />
               </div>
-              <h3 className="text-xl mb-3 text-gray-900">Sacred Origins</h3>
+              <h3 className="text-xl mb-3 text-gray-900">
+                Origin of Excellence
+              </h3>
               <p className="text-gray-600 leading-relaxed">
-                From Anno, a sacred hill in Ethiopia's Oromo Gada System, where
-                plants and animals are all feared and respected
+                From the highlands of Anno in Ethiopia’s Guji Zone, where nature
+                thrives in harmony and generations of farmers cultivate each
+                harvest with care — honoring Ethiopia’s rich coffee heritage and
+                the balance between people, soil, and tradition.
               </p>
             </div>
             <div
@@ -201,8 +219,9 @@ export function HomePage() {
                 Direct from Ethiopia
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                Coming from coffee growing areas in Ethiopia, we bring you
-                authentic flavors from the birthplace of coffee
+                Sourced from Ethiopia’s renowned coffee highlands, we bring you
+                the pure, authentic taste of coffee from its birthplace — where
+                tradition, altitude, and craftsmanship meet in every bean.
               </p>
             </div>
           </div>
@@ -218,7 +237,7 @@ export function HomePage() {
                 Our Identity
               </div>
               <h2 className="text-4xl md:text-5xl mb-6 text-gray-900 leading-tight font-primary">
-                <span className="font-bold">Family Owned</span>
+                <strong>Family Owned</strong>
                 <br />
                 25 Years of Passion for Coffee
               </h2>
@@ -230,8 +249,8 @@ export function HomePage() {
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
                 As a family-owned business with over 25 years of experience in
                 the coffee industry, we work directly with out-grower farmers in
-                the Guji area and are passionate about delivering the
-                highestquality product to our customers.
+                the Guji area and are passionate about delivering the highest
+                quality product to our customers.
               </p>
               <Link
                 to="/about"
@@ -247,6 +266,8 @@ export function HomePage() {
                   src={valleyImage}
                   alt="Ethiopian coffee beans"
                   className="w-full h-[500px] object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
@@ -268,6 +289,8 @@ export function HomePage() {
                   src={coffeeDryingImage}
                   alt="Coffee processing"
                   className="w-full h-[500px] object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
@@ -282,7 +305,7 @@ export function HomePage() {
                 Selection Process
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                At Anno Coffee, we carefully select the highestquality green
+                At Anno Coffee, we carefully select the highest quality green
                 coffee beans from across Ethiopia. Our team works hand-in-hand
                 with farmers to guarantee that the best farming and processing
                 methods are used.
@@ -340,6 +363,8 @@ export function HomePage() {
                   src={fieldImage}
                   alt="Sustainable farming"
                   className="w-full h-[500px] object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -24,7 +25,11 @@ export function YirgacheffePage() {
   ).href;
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white space-y-24 md:space-y-32">
+      <Helmet>
+        <title>Yirgacheffe Coffee | Anno Coffee</title>
+        <meta name="description" content="Floral and fruity Yirgacheffe coffee from Ethiopia’s southern highlands." />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div

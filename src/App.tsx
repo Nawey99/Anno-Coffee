@@ -43,7 +43,7 @@ function AppContent() {
       <Navigation />
 
       {/* Main Content with transition */}
-      <main className="flex-1 relative z-10 pt-20">
+      <main id="main" tabIndex={-1} className="flex-1 relative z-10 pt-20">
         <div
           key={displayLocation.pathname}
           className={`page-transition-wrapper ${

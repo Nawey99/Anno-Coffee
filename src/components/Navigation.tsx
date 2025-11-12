@@ -6,6 +6,20 @@ import { useState } from "react";
 export function Navigation() {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuPanelId = "primary-navigation";
+
+  // Close on ESC and restore focus to the toggle button
+  const toggleRef = React.useRef<HTMLButtonElement | null>(null);
+  React.useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMobileMenuOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    if (mobileMenuOpen) document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [mobileMenuOpen]);
 
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -39,6 +53,8 @@ export function Navigation() {
         backdropFilter: "blur(24px) saturate(180%)", // <-- extra blur + contrast
         WebkitBackdropFilter: "blur(24px) saturate(180%)",
       }}
+      role="navigation"
+      aria-label="Primary"
     >
       <div className="mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -102,8 +118,12 @@ export function Navigation() {
 
           {/* Mobile Menu Button */}
           <button
+            ref={toggleRef}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden mobile-menu-button"
+            aria-expanded={mobileMenuOpen}
+            aria-controls={menuPanelId}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {mobileMenuOpen ? (
               <X className="w-6 h-6" />
@@ -115,7 +135,12 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden mt-4 bg-white/50 backdrop-blur-2xl border border-white/30 rounded-2xl shadow-2xl p-6 flex flex-col space-y-2">
+          <div
+            id={menuPanelId}
+            className="md:hidden mt-4 bg-white/50 backdrop-blur-2xl border border-white/30 rounded-2xl shadow-2xl p-6 flex flex-col space-y-2"
+            role="dialog"
+            aria-modal="true"
+          >
             <Link
               to="/"
               onClick={() => setMobileMenuOpen(false)}

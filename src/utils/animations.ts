@@ -1,6 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-
-// Animation utility hooks and functions
+import { useState, useEffect, useRef } from "react";
 
 export const usePageLoadAnimation = () => {
     const [isLoading, setIsLoading] = useState(true);

@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -23,7 +24,11 @@ export function GujiPage() {
   ).href;
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white space-y-24 md:space-y-32">
+      <Helmet>
+        <title>Guji Coffee | Anno Coffee</title>
+        <meta name="description" content="Sweet and clean Guji coffee from Ethiopia’s Oromia Region." />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div

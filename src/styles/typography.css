@@ -1,0 +1,36 @@
+/* Minimal, non-invasive typography utilities using existing fonts */
+
+:root {
+  --type-scale-1: clamp(1rem, 0.96rem + 0.5vw, 1.125rem); /* body */
+  --type-scale-2: clamp(1.125rem, 1rem + 1vw, 1.25rem);   /* md text */
+  --type-scale-3: clamp(1.5rem, 1.2rem + 2vw, 2rem);      /* h3 */
+  --type-scale-4: clamp(2rem, 1.6rem + 3vw, 3rem);        /* h2 */
+  --type-scale-5: clamp(2.5rem, 1.8rem + 4vw, 3.75rem);   /* h1 */
+}
+
+.type-body {
+  font-size: var(--type-scale-1);
+  line-height: 1.7;
+}
+
+.type-lead {
+  font-size: var(--type-scale-2);
+  line-height: 1.65;
+}
+
+.type-h3 { font-size: var(--type-scale-3); line-height: 1.3; }
+.type-h2 { font-size: var(--type-scale-4); line-height: 1.2; }
+.type-h1 { font-size: var(--type-scale-5); line-height: 1.1; }
+
+/* Utility spacing helpers to normalize white space rhythm */
+.flow > * + * { margin-top: 1rem; }
+.flow-lg > * + * { margin-top: 1.25rem; }
+.flow-xl > * + * { margin-top: 1.5rem; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+
+

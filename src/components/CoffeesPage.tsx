@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { ArrowRight, MapPin, Thermometer, Droplets } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { usePageLoadAnimation, useScrollAnimation } from "../utils/animations";
@@ -55,7 +56,14 @@ export function CoffeesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white space-y-24 md:space-y-32">
+      <Helmet>
+        <title>Our Coffees | Anno Coffee</title>
+        <meta name="description" content="Explore premium Ethiopian coffee varieties from Anno Coffee: Yirgacheffe, Sidama, and Guji." />
+        <meta property="og:title" content="Our Coffees" />
+        <meta property="og:description" content="Premium Ethiopian varieties from Anno Coffee." />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Header Section */}
       <section className="relative py-24 bg-gradient-to-br from-amber-900 via-amber-800 to-amber-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -99,6 +107,8 @@ export function CoffeesPage() {
                     src={coffee.image}
                     alt={coffee.name}
                     className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                    decoding="async"
                   />
                   <div
                     className={`absolute inset-0 bg-gradient-to-t ${coffee.color} opacity-40 group-hover:opacity-10 transition-opacity`}
