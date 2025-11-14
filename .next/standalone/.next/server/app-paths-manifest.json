@@ -1,0 +1,11 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/coffees/page": "app/coffees/page.js",
+  "/coffees/guji/page": "app/coffees/guji/page.js",
+  "/coffees/yirgacheffe/page": "app/coffees/yirgacheffe/page.js",
+  "/terms/page": "app/terms/page.js",
+  "/about/page": "app/about/page.js",
+  "/page": "app/page.js",
+  "/privacy/page": "app/privacy/page.js",
+  "/coffees/sidama/page": "app/coffees/sidama/page.js"
+}
