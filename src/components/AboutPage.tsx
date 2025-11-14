@@ -17,10 +17,9 @@ type HighlightCard = {
 
 type ApproachCard = {
   id: string;
-  title: string;
-  description: string;
-  cardClasses: string;
-  backgroundColor: string;
+  badge: string;
+  heading: string;
+  copy: string;
   delay: string;
 };
 
@@ -63,62 +62,44 @@ const highlightCards: HighlightCard[] = [
 const approachCards: ApproachCard[] = [
   {
     id: "direct",
-    title: "Direct Partnerships",
-    description:
-      "We work directly with farmers in Guji, Yirgacheffe, and Sidama, ensuring fair compensation and building lasting relationships.",
-    cardClasses:
-      "bg-[#d9b98e]/90 text-[#2f2413] rounded-[28px] p-8 shadow-lg border border-white/50 backdrop-blur-sm transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-2xl",
-    backgroundColor: "#d9b98e",
+    badge: "Pillar 01",
+    heading: "Direct Partnerships",
+    copy: "We work directly with farmers in Guji, Yirgacheffe, and Sidama, ensuring fair compensation and building lasting relationships.",
     delay: "0.1s",
   },
   {
     id: "organic",
-    title: "Organic Practices",
-    description:
-      "All our coffee is grown organically using natural compost instead of chemical fertilizers, ensuring purity and sustainability.",
-    cardClasses:
-      "bg-[#d9b98e]/90 text-[#2f2413] rounded-[28px] p-8 shadow-lg border border-white/50 backdrop-blur-sm transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-2xl",
-    backgroundColor: "#d9b98e",
+    badge: "Pillar 02",
+    heading: "Organic Practices",
+    copy: "All our coffee is grown organically using natural compost instead of chemical fertilizers, ensuring purity and sustainability.",
     delay: "0.2s",
   },
   {
     id: "control",
-    title: "Quality Control",
-    description:
-      "Each batch is thoroughly tested and inspected to ensure it meets our rigorous standards for excellence.",
-    cardClasses:
-      "bg-[#d9b98e]/90 text-[#2f2413] rounded-[28px] p-8 shadow-lg border border-white/50 backdrop-blur-sm transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-2xl",
-    backgroundColor: "#d9b98e",
+    badge: "Pillar 03",
+    heading: "Quality Control",
+    copy: "Each batch is thoroughly tested and inspected to ensure it meets our rigorous standards for excellence.",
     delay: "0.3s",
   },
   {
     id: "selection",
-    title: "Premium Selection",
-    description:
-      "We carefully select only the finest beans from Ethiopia's most renowned coffee growing regions.",
-    cardClasses:
-      "bg-[#d9b98e]/90 text-[#2f2413] rounded-[28px] p-8 shadow-lg border border-white/50 backdrop-blur-sm transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-2xl",
-    backgroundColor: "#d9b98e",
+    badge: "Pillar 04",
+    heading: "Premium Selection",
+    copy: "We carefully select only the finest beans from Ethiopia's most renowned coffee growing regions.",
     delay: "0.4s",
   },
   {
     id: "community",
-    title: "Community Support",
-    description:
-      "We're committed to supporting the communities where our coffee is grown through fair wages and sustainable practices.",
-    cardClasses:
-      "bg-[#d9b98e]/90 text-[#2f2413] rounded-[28px] p-8 shadow-lg border border-white/50 backdrop-blur-sm transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-2xl",
-    backgroundColor: "#d9b98e",
+    badge: "Pillar 05",
+    heading: "Community Support",
+    copy: "We're committed to supporting the communities where our coffee is grown through fair wages and sustainable practices.",
     delay: "0.5s",
   },
   {
     id: "environment",
-    title: "Environmental Care",
-    description:
-      "We prioritize eco-friendly packaging and shipping methods to minimize our environmental impact.",
-    cardClasses:
-      "bg-[#d9b98e]/90 text-[#2f2413] rounded-[28px] p-8 shadow-lg border border-white/50 backdrop-blur-sm transition-transform transition-shadow duration-300 hover:-translate-y-1 hover:shadow-2xl",
-    backgroundColor: "#d9b98e",
+    badge: "Pillar 06",
+    heading: "Environmental Care",
+    copy: "We prioritize eco-friendly packaging and shipping methods to minimize our environmental impact.",
     delay: "0.6s",
   },
 ];
@@ -350,37 +331,26 @@ export function AboutPage() {
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {approachCards.map(
-                ({
-                  id,
-                  title,
-                  description,
-                  cardClasses,
-                  backgroundColor,
-                  delay,
-                }) => (
-                  <div
-                    key={id}
-                    className={`relative text-center animate-fadeInUp ${cardClasses}`}
-                    style={{
-                      animationDelay: delay,
-                      backgroundColor,
-                      borderRadius: "28px",
-                      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.12)",
-                      border: "1px solid rgba(255, 255, 255, 0.5)",
-                      backdropFilter: "blur(4px)",
-                      padding: "2.5rem",
-                    }}
-                  >
-                    <h3 className="text-xl font-semibold mb-2 text-gray-900">
-                      {title}
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed text-base">
-                      {description}
-                    </p>
-                  </div>
-                )
-              )}
+              {approachCards.map(({ id, badge, heading, copy, delay }) => (
+                <div
+                  key={id}
+                  className="relative animate-fadeInUp bg-amber-50 rounded-[28px] p-8"
+                  style={{
+                    animationDelay: delay,
+                    boxShadow: "0 22px 50px rgba(0, 0, 0, 0.12)",
+                    border: "1px solid rgba(255, 255, 255, 0.45)",
+                    borderRadius: "28px",
+                    backdropFilter: "blur(6px)",
+                  }}
+                >
+                  <h3 className="text-2xl font-semibold mb-3 text-amber-900">
+                    {heading}
+                  </h3>
+                  <p className="text-amber-900 leading-relaxed text-lg">
+                    {copy}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
