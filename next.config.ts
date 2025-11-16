@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
     unoptimized: false,
   },
   reactStrictMode: true,
-  output: 'standalone',
   poweredByHeader: false,
   compress: true,
 };

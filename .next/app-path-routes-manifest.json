@@ -1,11 +1,11 @@
 {
   "/_not-found/page": "/_not-found",
   "/about/page": "/about",
-  "/coffees/guji/page": "/coffees/guji",
   "/coffees/page": "/coffees",
-  "/coffees/sidama/page": "/coffees/sidama",
-  "/page": "/",
-  "/coffees/yirgacheffe/page": "/coffees/yirgacheffe",
+  "/coffees/guji/page": "/coffees/guji",
   "/privacy/page": "/privacy",
-  "/terms/page": "/terms"
+  "/coffees/sidama/page": "/coffees/sidama",
+  "/terms/page": "/terms",
+  "/page": "/",
+  "/coffees/yirgacheffe/page": "/coffees/yirgacheffe"
 }

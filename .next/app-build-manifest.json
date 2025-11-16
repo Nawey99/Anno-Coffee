@@ -24,14 +24,6 @@
       "static/chunks/67-7b1c86cbef9b5d44.js",
       "static/chunks/app/about/page-bd4c4b279a74db1e.js"
     ],
-    "/coffees/guji/page": [
-      "static/chunks/webpack-597496979811e79b.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-12f7d171ca194a75.js",
-      "static/chunks/main-app-bfb2fc97667f92d7.js",
-      "static/chunks/67-7b1c86cbef9b5d44.js",
-      "static/chunks/app/coffees/guji/page-e284f4be4cb97dd0.js"
-    ],
     "/coffees/page": [
       "static/chunks/webpack-597496979811e79b.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
@@ -40,6 +32,21 @@
       "static/chunks/67-7b1c86cbef9b5d44.js",
       "static/chunks/app/coffees/page-b5aae05e76e98457.js"
     ],
+    "/coffees/guji/page": [
+      "static/chunks/webpack-597496979811e79b.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-12f7d171ca194a75.js",
+      "static/chunks/main-app-bfb2fc97667f92d7.js",
+      "static/chunks/67-7b1c86cbef9b5d44.js",
+      "static/chunks/app/coffees/guji/page-e284f4be4cb97dd0.js"
+    ],
+    "/privacy/page": [
+      "static/chunks/webpack-597496979811e79b.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-12f7d171ca194a75.js",
+      "static/chunks/main-app-bfb2fc97667f92d7.js",
+      "static/chunks/app/privacy/page-fec08884d6157e26.js"
+    ],
     "/coffees/sidama/page": [
       "static/chunks/webpack-597496979811e79b.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
@@ -47,6 +54,13 @@
       "static/chunks/main-app-bfb2fc97667f92d7.js",
       "static/chunks/67-7b1c86cbef9b5d44.js",
       "static/chunks/app/coffees/sidama/page-87685f1035fb3f15.js"
+    ],
+    "/terms/page": [
+      "static/chunks/webpack-597496979811e79b.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-12f7d171ca194a75.js",
+      "static/chunks/main-app-bfb2fc97667f92d7.js",
+      "static/chunks/app/terms/page-fec08884d6157e26.js"
     ],
     "/page": [
       "static/chunks/webpack-597496979811e79b.js",
@@ -63,20 +77,6 @@
       "static/chunks/main-app-bfb2fc97667f92d7.js",
       "static/chunks/67-7b1c86cbef9b5d44.js",
       "static/chunks/app/coffees/yirgacheffe/page-325c2b097ddbda05.js"
-    ],
-    "/privacy/page": [
-      "static/chunks/webpack-597496979811e79b.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-12f7d171ca194a75.js",
-      "static/chunks/main-app-bfb2fc97667f92d7.js",
-      "static/chunks/app/privacy/page-fec08884d6157e26.js"
-    ],
-    "/terms/page": [
-      "static/chunks/webpack-597496979811e79b.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-12f7d171ca194a75.js",
-      "static/chunks/main-app-bfb2fc97667f92d7.js",
-      "static/chunks/app/terms/page-fec08884d6157e26.js"
     ]
   }
 }
